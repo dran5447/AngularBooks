@@ -5,23 +5,27 @@
         <script src="keys.js"></script>
         <script src="main.js"></script>
         <link rel="stylesheet" href="main.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Raleway:300,400&display=swap" rel="stylesheet">
     </head>
     <body>
         <div>
-            <h1>Angular Books</h1>
+            <h1 class="page-header">Angular Books</h1>
         </div>
         <div>
-            <form  ng-submit="search()"> 
-                <input type="text" ng-model="searchText" size="180" ng-change=""
-                        placeholder=" Find your next read... " > 
-                <input class="btn-secondary" type="submit" value="Filter">
+            <form ng-submit="search()"> 
+                <input class="search-box body-text" type="text" ng-model="searchText" ng-change="search()"
+                        placeholder="Find your next read..." > 
+                <input class="btn-primary header-text" type="submit" value="Search" ng-click="search()">
+                <input class="btn-secondary header-text" type="submit" value="Filter">
+                <input class="btn-secondary header-text" type="submit" value="Clear">
             </form>
-            
+
+            <h2 class="section-header">{{sectionHeader}}</h2>
+
             <div class="grid">
                 <div ng-repeat="book in bookList">
                     <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
-                    <label> {{book.description}} </label>
-                    <h3>{{book.volumeInfo.title}}</h3>
+                    <h3 class='body-text'>{{book.volumeInfo.title}}</h3>
                 </div>
             </div>
         </div>
