@@ -8,6 +8,7 @@ angular.module('booksApp', [])
     
     var favorites = [];
     $scope.bookList = [];    
+    $scope.defaultBooksList = [];
     $scope.sectionHeader = sectionHeaderOptions.DEFAULT;
  
     $scope.search = function() {
@@ -36,6 +37,14 @@ angular.module('booksApp', [])
         //by id - https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=yourAPIKey
     }
 
+    $scope.clear = function(){
+        if($scope.sectionHeader!=sectionHeaderOptions.DEFAULT){
+            $scope.searchText  = "";
+            $scope.sectionHeader = sectionHeaderOptions.DEFAULT;
+            $scope.bookList = $scope.defaultBooksList;
+        }
+    }
+
     loadBooks = function(){
         var key = constants.API_ENDPOINT;
         var type = "nonfiction";
@@ -46,6 +55,7 @@ angular.module('booksApp', [])
             url: requestUrl
         }).then(function successCallback(response) {
             $scope.bookList = response.data.items;
+            $scope.defaultBooksList = response.data.items; //cache this for later
         }, function errorCallback(response) {
             //TODO show error
         });
