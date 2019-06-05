@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="booksApp" ng-controller="MainController">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+        <script src="keys.js"></script>
+        <script src="main.js"></script>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div>
+            <h1>Angular Books</h1>
+        </div>
+        <div>
+            <form  ng-submit="search()"> 
+                <input type="text" ng-model="searchText" size="180" ng-change=""
+                        placeholder=" Find your next read... " > 
+                <input class="btn-secondary" type="submit" value="Filter">
+            </form>
+            
+            <div class="grid">
+                <div ng-repeat="book in bookList">
+                    <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
+                    <label> {{book.description}} </label>
+                    <h3>{{book.volumeInfo.title}}</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
