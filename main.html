@@ -13,7 +13,7 @@
         </div>
         <div>
             <form ng-submit="search()"> 
-                <input class="search-box body-text" type="text" ng-model="searchText" ng-change="search()"
+                <input class="search-box body-text" type="text" ng-model="searchText" ng-change="dynamicSearch()"
                         placeholder="Find your next read..." > 
                 <input class="btn-primary header-text" type="submit" value="Search" ng-click="search()">
                 <input class="btn-secondary header-text" type="submit" value="Filter">

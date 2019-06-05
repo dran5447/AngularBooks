@@ -30,6 +30,17 @@ angular.module('booksApp', [])
         }
     };
 
+    $scope.dynamicSearch = function(){
+        // When doing a search while user is typing, use a short delay and check that 
+        // the user has paused, so as to avoid constant flashing result updates
+        var previousQuery = $scope.searchText;
+        setTimeout(function(){
+            if($scope.searchText === previousQuery){
+                $scope.search();
+            }
+        }, 600);
+    }
+
     $scope.filter = function(){
         //TODO enable some filtering options
 
