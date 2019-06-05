@@ -1,9 +1,9 @@
 <!doctype html>
-<html ng-app="booksApp" ng-controller="MainController">
+<html>
     <body>
-            <div>
-                <h1 class="page-header">Angular Books</h1>
-            </div>
+        <div>
+            <h1 class="page-header">Angular Books</h1>
+        </div>
             <div>
                 <form ng-submit="search()"> 
                     <input class="search-box body-text" type="text" ng-model="searchText" ng-change="dynamicSearch()"
@@ -16,7 +16,7 @@
                 <h2 class="section-header">{{sectionHeader}}</h2>
     
                 <div class="grid">
-                    <div ng-repeat="book in bookList">
+                    <div ng-repeat="book in bookList" ng-click="bookSelected($event, book)">
                         <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
                         <h3 class='body-text'>{{book.volumeInfo.title}}</h3>
                     </div>

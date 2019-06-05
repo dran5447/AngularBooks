@@ -2,7 +2,7 @@ angular.module('booksApp', ['ui.bootstrap', 'ngRoute'])
 
 .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
     $routeProvider
-        .when('home', {
+        .when('/', {
             templateUrl: 'home.html',
             controller: 'MainController'
         })
@@ -11,7 +11,7 @@ angular.module('booksApp', ['ui.bootstrap', 'ngRoute'])
             controller: 'BookController'
         })
         .otherwise({
-            redirectTo: 'home'
+            redirectTo: '/'
         });
   }])
 
@@ -71,6 +71,11 @@ angular.module('booksApp', ['ui.bootstrap', 'ngRoute'])
 
     }
 
+    $scope.bookSelected = function($event, book){
+        $scope.selectedBook = book;
+        this.router.navigate(['/book']);
+    }
+
     $scope.clear = function(){
         if($scope.sectionHeader!=sectionHeaderOptions.DEFAULT){
             $scope.searchText  = "";
@@ -100,5 +105,9 @@ angular.module('booksApp', ['ui.bootstrap', 'ngRoute'])
 
   .controller('BookController', function($scope, $http, $routeParams) {
     //TODO
+
+    var book =  this.route.snapshot.data['book'];
+    $scope.book = book;
+
     $scope.bookList = [];
   });
