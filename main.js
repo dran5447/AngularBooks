@@ -1,5 +1,22 @@
-angular.module('booksApp', [])
-  .controller('MainController', function($scope, $http) {
+angular.module('booksApp', ['ui.bootstrap', 'ngRoute'])
+
+.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    $routeProvider
+        .when('home', {
+            templateUrl: 'home.html',
+            controller: 'MainController'
+        })
+        .when('book', {
+            templateUrl: 'book.html',
+            controller: 'BookController'
+        })
+        .otherwise({
+            redirectTo: 'home'
+        });
+  }])
+
+
+  .controller('MainController', function($scope, $http, $routeParams) {
     const sectionHeaderOptions = {
         DEFAULT: "Top Picks for You",
         SEARCH: "Results"
@@ -7,6 +24,7 @@ angular.module('booksApp', [])
     var appController = this;
     
     var favorites = [];
+    $scope.$routeParams = $routeParams;
     $scope.bookList = [];    
     $scope.defaultBooksList = [];
     $scope.sectionHeader = sectionHeaderOptions.DEFAULT;
@@ -48,6 +66,11 @@ angular.module('booksApp', [])
         //by id - https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=yourAPIKey
     }
 
+    $scope.showPreview = function(){
+       
+
+    }
+
     $scope.clear = function(){
         if($scope.sectionHeader!=sectionHeaderOptions.DEFAULT){
             $scope.searchText  = "";
@@ -73,4 +96,9 @@ angular.module('booksApp', [])
     };
 
     loadBooks();
-});
+    })
+
+  .controller('BookController', function($scope, $http, $routeParams) {
+    //TODO
+    $scope.bookList = [];
+  });

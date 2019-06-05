@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="booksApp" ng-controller="MainController">
+    <body>
+            <div>
+                <h1 class="page-header">Angular Books</h1>
+            </div>
+            <div>
+                <form ng-submit="search()"> 
+                    <input class="search-box body-text" type="text" ng-model="searchText" ng-change="dynamicSearch()"
+                            placeholder="Find your next read..." > 
+                    <input class="btn-primary header-text" type="submit" value="Search" ng-click="search()">
+                    <input class="btn-secondary header-text" type="submit" value="Filter" ng-click="showPreview()">
+                    <input class="btn-secondary header-text" type="submit" value="Clear" ng-click="clear()">
+                </form>
+    
+                <h2 class="section-header">{{sectionHeader}}</h2>
+    
+                <div class="grid">
+                    <div ng-repeat="book in bookList">
+                        <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
+                        <h3 class='body-text'>{{book.volumeInfo.title}}</h3>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>

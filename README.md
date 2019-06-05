@@ -12,3 +12,4 @@
 https://console.developers.google.com/apis/api/books.googleapis.com/
 3. Create api key credentials
 4. Create a keys.js file and reference your new key. Use this in all your API calls
+5. Use http-server -o to run
