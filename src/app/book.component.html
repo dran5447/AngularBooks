@@ -24,8 +24,10 @@
             
         </div>
 
-        <h2>{{book.volumeInfo.categories}}</h2>
-        <h2>Published {{book.volumeInfo.publishedDate}} by {{book.volumeInfo.publisher}}</h2>
+        <p class="caption">
+            {{book.volumeInfo.categories}}   |    
+            Published {{book.volumeInfo.publishedDate}} by {{book.volumeInfo.publisher}}
+        </p>
 
     </div>
 
@@ -34,7 +36,7 @@
         <p>{{book.volumeInfo.ratingsCount}} Reviews</p>
     </span>
 
-
+    <h3 class="sub-header">Description</h3>
     <p class="body-text">{{book.volumeInfo.description}}</p>
 
 </div>

@@ -14,12 +14,17 @@
 .sub-header{
     font-family: 'Raleway', sans-serif;
     font-weight: 200;
-    font-size: 24px;
+    font-size: 22px;
 }
 .body-text {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 300;
+}
+.caption {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 100;
 }
 .book-details-header h2{
     position: relative;
