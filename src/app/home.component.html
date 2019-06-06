@@ -4,8 +4,7 @@
         <div>
             <form (ngSubmit)="search()"> 
                 <input class="search-box body-text" type="text" [(ngModel)]="searchText" name="search" (input)="dynamicSearch($event)"
-                        placeholder="Find your next read..." > 
-                <input class="btn-primary header-text" type="submit" value="Search" (click)="search()">
+                        placeholder="Find your next read..." >
                 <input class="btn-secondary header-text" type="submit" value="Filter" (click)="showPreview()">
                 <input class="btn-secondary header-text" type="submit" value="Clear" (click)="clear()">
             </form>
