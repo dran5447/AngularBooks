@@ -1,2 +1,35 @@
-<h1>BOOK INFO HERE</h1>
-<h2>{{book.volumeInfo.title}}</h2>
+
+<div>
+    <div>
+        <a [routerLink]="['/']">Back</a>
+    </div>
+
+    <div>
+        <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
+        <h2 class="section-header">{{book.volumeInfo.title}} : {{book.volumeInfo.subtitle}}</h2>
+        <h3 class="body-text">By {{book.volumeInfo.authors}}</h3>
+
+        <div *ngIf="forSale"> 
+            <h3>${{book.saleInfo.listPrice.amount}}</h3>
+            <button type="button" class="btn btn-primary-outline pull-right" >
+                <a href="{{this.book.saleInfo.buyLink}}">
+                    <i class="fas fa-credit-card"></i> Buy on Google Play Books
+                </a>
+            </button>    
+
+          </div>
+
+        <h2>{{book.volumeInfo.categories}}</h2>
+        <h2>Published {{book.volumeInfo.publishedDate}} by {{book.volumeInfo.publisher}}</h2>
+
+    </div>
+
+
+    <h3>{{book.volumeInfo.averageRating}}</h3>
+    <h3>{{book.volumeInfo.ratingsCount}}</h3>
+
+
+
+    <p class="body-text">{{book.volumeInfo.description}}</p>
+
+</div>
