@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+.app-content {
+    padding:10px 30px;
+}
 
 .page-header{
     font-family: 'Raleway', sans-serif;
@@ -18,6 +20,15 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-weight: 200;
+}
+.book-details-header h2{
+    position: relative;
+    display: inline;
+}
+.book-details-header img{
+    position: relative;
+    float: left;
+    padding: 0px 30px 0px 0px;
 }
 .grid { 
     display: grid;
