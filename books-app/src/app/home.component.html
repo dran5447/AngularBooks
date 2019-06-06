@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <body>
+        <div>
+            <form (ngSubmit)="search()"> 
+                <input class="search-box body-text" type="text" [(ngModel)]="searchText" name="search" (input)="dynamicSearch($event)"
+                        placeholder="Find your next read..." > 
+                <input class="btn-primary header-text" type="submit" value="Search" (click)="search()">
+                <input class="btn-secondary header-text" type="submit" value="Filter" (click)="showPreview()">
+                <input class="btn-secondary header-text" type="submit" value="Clear" (click)="clear()">
+            </form>
+
+            <h2 class="section-header">{{sectionHeader}}</h2>
+
+            <div class="grid">
+                <div *ngFor="let book of bookList" (click)="bookSelected($event, book)">
+                    <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
+                    <h3 class='body-text'>{{book.volumeInfo.title}}</h3>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
