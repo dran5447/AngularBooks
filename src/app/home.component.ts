@@ -4,15 +4,16 @@ import * as constants from './keys';
 import { Router } from '@angular/router';
 import { Data } from './data';
 
+declare var $: any;
+
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-//  styleUrls: ['./app.component.css']
 })
 
 export class HomeComponent { 
     static readonly sectionHeaderOptions = {
-        DEFAULT: "Top Picks for You",
+        DEFAULT: "Trending",
         SEARCH: "Results"
     }
 
@@ -32,21 +33,42 @@ export class HomeComponent {
         this.http.get(requestUrl).subscribe((res : any) => {
             this.bookList = res.items;
             this.defaultBooksList = res.items; //cache this for later
-        });
+
+            this.loadCarousel();
+        });        
     }
-    
+
+    private loadCarousel(){
+        $(document).ready(() => {
+            $('#lightSlider').lightSlider({
+                gallery: true,
+                item: 5,
+                auto:true,
+                speed:1000,
+                pause: 6000,
+                loop: true,
+                slideMargin: 30,
+                pauseOnHover: true,
+            });
+        });
+    }    
  
     search() {
         var key = constants.API_ENDPOINT;
         var query = this.searchText;
 
         if(query && query!==""){
+            $('#top-picks').hide();
+
             this.sectionHeader = HomeComponent.sectionHeaderOptions.SEARCH;
             var requestUrl = "https://www.googleapis.com/books/v1/volumes?q="+query+"&key="+key;
 
             this.http.get(requestUrl).subscribe((res : any) => {
                 this.bookList = res.items;
             });
+        }
+        else{
+            this.clear();
         }
     }
 
@@ -71,10 +93,6 @@ export class HomeComponent {
         //by id - https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=yourAPIKey
     }
 
-    showPreview(){
-
-    }
-
     bookSelected($event, book){
         this.data.storage = book;
         this.router.navigate([`/book/${book.id}`], { skipLocationChange: true });
@@ -82,10 +100,14 @@ export class HomeComponent {
 
     clear(){
         if(this.sectionHeader!=HomeComponent.sectionHeaderOptions.DEFAULT){
+            $('#top-picks').show();
+            this.loadCarousel();
+
             this.searchText  = "";
             this.sectionHeader = HomeComponent.sectionHeaderOptions.DEFAULT;
             this.bookList = this.defaultBooksList;
         }
+
     }
 
 }

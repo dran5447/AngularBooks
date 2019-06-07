@@ -2,20 +2,40 @@
 <html>
     <body>
         <div>
-            <form (ngSubmit)="search()"> 
+            <form (ngSubmit)="search()">
                 <input class="search-box body-text" type="text" [(ngModel)]="searchText" name="search" (input)="dynamicSearch($event)"
                         placeholder="Find your next read..." >
-                <input class="btn-secondary header-text" type="submit" value="Filter" (click)="showPreview()">
-                <input class="btn-secondary header-text" type="submit" value="Clear" (click)="clear()">
+                <input class="btn btn-primary header-text" type="submit" value="Filter" (click)="showPreview()">
+                <input class="btn btn-light header-text" type="submit" value="Clear" (click)="clear()">
             </form>
 
-            <h2 class="section-header">{{sectionHeader}}</h2>
-
-            <div class="grid">
-                <div *ngFor="let book of bookList" (click)="bookSelected($event, book)">
-                    <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
-                    <h3 class='body-text'>{{book.volumeInfo.title}}</h3>
+            <div id="top-picks">
+                <h2 class="section-header">Top Picks for You</h2>
+                <div class="lightSlider-carousel">
+                    <ul id="lightSlider">
+                        <li *ngFor="let book of bookList" [attr.data-thumb]="book.volumeInfo.imageLinks.thumbnail" (click)="bookSelected($event, book)">
+                            <img class="" src="{{book.volumeInfo.imageLinks.thumbnail}}" />
+                            <p>{{book.volumeInfo.title}}</p>
+                        </li> 
+                    </ul>
                 </div>
+            </div>
+
+            <div id="results">
+                <h2 class="section-header">{{sectionHeader}}</h2>
+                <ul>
+                    <li class="results-list" *ngFor="let book of bookList" [attr.data-thumb]="book.volumeInfo.imageLinks.thumbnail" (click)="bookSelected($event, book)">
+                        <img class="book-details-header-img" src="{{book.volumeInfo.imageLinks.thumbnail}}" />
+                        <div class="book-details-header">
+                            <h2 class="section-header">{{book.volumeInfo.title}} : {{book.volumeInfo.subtitle}}</h2>
+                            <h3 class="body-text">By {{book.volumeInfo.authors}}</h3>
+                            <div class="body-text">
+                                    <p>Average of {{book.volumeInfo.averageRating}} out of 5 stars</p>
+                                    <p>, {{book.volumeInfo.ratingsCount}} Reviews</p>
+                            </div>
+                        </div>                        
+                    </li> 
+                </ul>
             </div>
         </div>
     </body>
