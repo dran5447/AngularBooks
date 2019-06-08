@@ -41,17 +41,19 @@
 
             <div id="results" class="section">
                 <h2 class="section-header">{{sectionHeader}}</h2>
-                <ul>
-                    <li class="results-list" *ngFor="let book of bookList" [attr.data-thumb]="book.volumeInfo.imageLinks.thumbnail" (click)="bookSelected($event, book)">
-                        <img class="book-details-header-img" src="{{book.volumeInfo.imageLinks.thumbnail}}" />
-                        <span class="book-details-header">
-                            <h2 class="sub-header">{{book.volumeInfo.title}} : {{book.volumeInfo.subtitle}}</h2>
-                            <h3 class="body-text">By {{book.volumeInfo.authors}}</h3>
-                            <span class="body-text">
-                                    <p>Average of {{book.volumeInfo.averageRating}} out of 5 stars</p>
-                                    <p>, {{book.volumeInfo.ratingsCount}} Reviews</p>
-                            </span>
-                        </span>                        
+                <ul class="results-list">
+                    <li class="results-list-item" *ngFor="let book of bookList" [attr.data-thumb]="book.volumeInfo.imageLinks.thumbnail" (click)="bookSelected($event, book)">
+                        <div class="results-list-item-content">
+                            <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
+                            <div class="book-details-header">
+                                <h2 class="sub-header">{{book.volumeInfo.title}} : {{book.volumeInfo.subtitle}}</h2>
+                                <h3 class="body-text">By {{book.volumeInfo.authors}}</h3>
+                                <div class="body-text">
+                                        <p>Average of {{book.volumeInfo.averageRating}} out of 5 stars</p>
+                                        <p>, {{book.volumeInfo.ratingsCount}} Reviews</p>
+                                </div>
+                            </div>  
+                        </div>                      
                     </li> 
                 </ul>
             </div>

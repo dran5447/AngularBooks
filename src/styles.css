@@ -22,14 +22,7 @@ ul {
     display: block;
     height: auto;
     width: 13.3vw;
-    /* min-width: 100%; */
 }
-
-#results p{
-    position: relative;
-    display: inline;
-}
-
 .page-header{
     font-family: 'Raleway', sans-serif;
     font-size: 40px;
@@ -59,30 +52,28 @@ ul {
     display: inline;
 }
 .results-list{
-    list-style-type: none;
+    display: block;  
+}
+.results-list-item{
     margin-left:0px;
     padding-left:0px;
     padding-bottom:20px;
-    display: inline-block;  
 }
-
-.results-list img
+.results-list-item img
 {
-    float:left;
     padding-right:20px;
+    display:inline-block;
+    float:left;
 }
-
-.results-list p, .results-list h3 {
+.results-list-item p, .results-list-item h3 {
     text-align: right; 
     display:inline-block;
     padding: 0;
 }
-
-.book-details-header img{
-    position: relative;
-    float: left;
-    padding: 0px 30px 0px 0px;
+.results-list-item-content{
+    display:inline-block;
 }
+
 .btn{
     margin: 0px 5px;
 }
@@ -179,8 +170,8 @@ form {
     color: gray;
     margin: 0px 0px 10px 0px;
 }
-#categories i:hover,p:hover{
+#categories i:hover{
     color: #985e6d;
     font-weight: 600;
-    transition-duration: 500ms;
+    transition-duration: 300ms;
 }
