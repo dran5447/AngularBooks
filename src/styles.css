@@ -21,7 +21,8 @@ ul {
 #top-picks img {
     display: block;
     height: auto;
-    min-width: 100%;
+    width: 13.3vw;
+    /* min-width: 100%; */
 }
 
 #results p{
@@ -111,7 +112,7 @@ ul {
     border-width: 0;
 }
 .section{
-    margin: 0px 0px 40px 0px;
+    margin: 0px 0px 20px 0px;
 }
 
 form {
@@ -126,14 +127,13 @@ form {
 .page-header{
     background-color: #494e6b;
     color: white;
-    padding: 60px 30px;
+    padding: 40px 30px;
     position: sticky;
     position: -webkit-sticky;
     box-shadow: 0 3px 12px 0 rgba(0,0,0,.38);
     display: block;
     top: 0px;
-    z-index: 10;
-    
+    z-index: 10;    
 }
 .page-header::before {
     /* background-image: url('path/to/image.jpg'); Actual image for this demo is a data-uri, see below */
@@ -153,7 +153,6 @@ form {
     width: 50%;
     margin: auto;
 }
-
 .search-box {
     width:80%;
     height: 40px;
@@ -162,4 +161,26 @@ form {
     border-radius: 5px;
     text-align: center;
     font-size: 16px;
+}
+#categories ul{
+    display: block;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+}
+#categories li{
+    cursor:pointer;
+    float: left;
+    text-align:center;
+    margin: 0px 20px;
+}
+#categories i{
+    font-size: 3vw;
+    color: gray;
+    margin: 0px 0px 10px 0px;
+}
+#categories i:hover,p:hover{
+    color: #985e6d;
+    font-weight: 600;
+    transition-duration: 500ms;
 }

@@ -45,7 +45,7 @@ export class HomeComponent {
                 item: 5,
                 auto:true,
                 speed:1000,
-                pause: 6000,
+                pause: 4000,
                 loop: true,
                 slideMargin: 30,
                 pauseOnHover: true,
