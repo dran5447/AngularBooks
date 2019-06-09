@@ -46,12 +46,12 @@
                         <div class="results-list-item-content">
                             <img src="{{book.volumeInfo.imageLinks.thumbnail}}" />
                             <div class="book-details-header">
-                                <h2 class="sub-header">{{book.volumeInfo.title}} : {{book.volumeInfo.subtitle}}</h2>
+                                <h2 *ngIf="book.volumeInfo.subtitle; else elseBlock" class="sub-header">{{book.volumeInfo.title}} : {{book.volumeInfo.subtitle}}</h2>
+                                <ng-template #elseBlock><h2 class="sub-header">!!! {{book.volumeInfo.title}}</h2></ng-template>
+
                                 <h3 class="body-text">By {{book.volumeInfo.authors}}</h3>
-                                <div class="body-text">
-                                        <p>Average of {{book.volumeInfo.averageRating}} out of 5 stars</p>
-                                        <p>, {{book.volumeInfo.ratingsCount}} Reviews</p>
-                                </div>
+                                <p class="body-text">Average of {{book.volumeInfo.averageRating}} out of 5 stars</p>
+                                <p class="body-text">, {{book.volumeInfo.ratingsCount}} Reviews</p>
                             </div>  
                         </div>                      
                     </li> 

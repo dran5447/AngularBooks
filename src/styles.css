@@ -157,13 +157,15 @@ form {
     display: block;
     list-style-type: none;
     padding: 0;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
 }
 #categories li{
     cursor:pointer;
-    float: left;
     text-align:center;
     margin: 0px 20px;
+    display: inline-block;
 }
 #categories i{
     font-size: 3vw;
