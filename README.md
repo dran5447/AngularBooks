@@ -1,8 +1,8 @@
 # AngularBooks
 
-## Current Status
+## Current Status as of 6/12/19
 
-![gif of app showing interaction and content](https://media.giphy.com/media/5C275WdkHFuwXpkYyz/giphy.gif)
+![gif of app showing interaction and content](https://media.giphy.com/media/9Y3itC5vmLOVK8Gx6E/giphy.gif)
 
 
 ## Required Steps to Run
